@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1>Youtube Downloader V1.0</h1>
+	<form>
+		<input id="urlYoutube" class="item-m" type="text" name="url" placeholder="Insert YouTube URL here" value="" required="required">
+		<select class="item-m" name="destination">
+			<option value="0" disabled>Select directory:</option>
+			@foreach (var directory in ViewData["destination"] as IList<string>)
+			{
+				<option value="@directory">@directory.Substring(Constants.PrefixDirectory.Length)</option>
+			}
+			
+		</select>
+		<button type="submit" class="btn-yt" asp-controller="Home" asp-action="Download">Download</button>
+	</form>
+	
+</div>
